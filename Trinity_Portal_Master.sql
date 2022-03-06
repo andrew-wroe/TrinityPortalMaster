@@ -37,7 +37,7 @@ INSERT INTO creature_template (entry, modelid1, name, subname, IconName, gossip_
 
 -- Teleporter aura
 
-INSERT INTO creature_template_addon (entry, mount, bytes1, bytes2, emote, path_id, auras) VALUES (@ENTRY, 0, 0, 0, 0, 0, @AURA);
+INSERT INTO creature_template_addon (entry, mount, MountCreatureID, bytes1, bytes2, emote, path_id, auras) VALUES (@ENTRY, 0, 0, 0, 0, 0, 0, @AURA);
 
 -- Gossip header text link to menus
 
@@ -55,7 +55,7 @@ INSERT INTO gossip_menu (menuid, textid) VALUES
 
 -- Gossip header texts
 
-INSERT INTO npc_text (ID, text0_0, em0_1) VALUES
+INSERT INTO npc_text (ID, text0_0, Emote0_1) VALUES
 (@TEXT_ID+4, "$BWhere would you like to be ported?$B", 0),
 (@TEXT_ID+3, "$BBe careful with choosing raids, I won't be there if you wipe.$B", 0),
 (@TEXT_ID+2, "$BUp for some dungeon exploring?$B", 0),
@@ -65,14 +65,14 @@ INSERT INTO npc_text (ID, text0_0, em0_1) VALUES
 -- Conditions for gossip option and menu factions
 
 INSERT INTO conditions (SourceTypeOrReferenceId, SourceGroup, SourceEntry, ConditionTypeOrReference, ConditionValue1, Comment) VALUES
-(15, @GOSSIP_MENU, 1, 6, 469, "Stormwind"),
+(15, @GOSSIP_MENU, 1, 6, 469, "Stormwind City"),
 (15, @GOSSIP_MENU+5, 2, 6, 469, "Dun Morogh"),
 (15, @GOSSIP_MENU+5, 3, 6, 67, "Tirisfal Glades"),
 (15, @GOSSIP_MENU+5, 4, 6, 67, "Ghostlands"),
-(15, @GOSSIP_MENU+5, 5, 6, 469, "Loch modan"),
+(15, @GOSSIP_MENU+5, 5, 6, 469, "Loch Modan"),
 (15, @GOSSIP_MENU+5, 6, 6, 67, "Silverpine Forest"),
 (15, @GOSSIP_MENU+5, 7, 6, 469, "Westfall"),
-(15, @GOSSIP_MENU+5, 8, 6, 469, "Redridge mountains"),
+(15, @GOSSIP_MENU+5, 8, 6, 469, "Redridge Mountains"),
 (15, @GOSSIP_MENU+5, 9, 6, 469, "Duskwood"),
 (15, @GOSSIP_MENU+5, 11, 6, 469, "Wetlands"),
 (15, @GOSSIP_MENU+6, 0, 6, 469, "Azuremyst Isle"),
@@ -89,9 +89,9 @@ INSERT INTO conditions (SourceTypeOrReferenceId, SourceGroup, SourceEntry, Condi
 (15, @GOSSIP_MENU, 3, 6, 469, "Darnassus"),
 (15, @GOSSIP_MENU, 4, 6, 469, "Ironforge"),
 (15, @GOSSIP_MENU, 5, 6, 469, "Exodar"),
-(15, @GOSSIP_MENU, 6, 6, 67, "Thunder bluff"),
+(15, @GOSSIP_MENU, 6, 6, 67, "Thunder Mluff"),
 (15, @GOSSIP_MENU, 7, 6, 67, "Undercity"),
-(15, @GOSSIP_MENU, 8, 6, 67, "Silvermoon city"),
+(15, @GOSSIP_MENU, 8, 6, 67, "Silvermoon City"),
 (15, @GOSSIP_MENU+1, 0, 6, 469, "Gnomeregan"),
 (15, @GOSSIP_MENU+1, 1, 6, 469, "The Deadmines"),
 (15, @GOSSIP_MENU+1, 2, 6, 469, "The Stockade"),
@@ -233,18 +233,18 @@ INSERT INTO conditions (SourceTypeOrReferenceId, SourceGroup, SourceEntry, Condi
 -- Gossip options:
 
 INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, optiontype, optionnpcflag, actionmenuid, actionpoiid, boxcoded, boxmoney, boxtext) VALUES
-(@GOSSIP_MENU, 1, 2, "Stormwind", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Stormwind?"),
+(@GOSSIP_MENU, 1, 2, "Stormwind City", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Stormwind?"),
 (@GOSSIP_MENU, 2, 2, "Orgrimmar", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Orgrimmar?"),
 (@GOSSIP_MENU, 3, 2, "Darnassus", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Darnassus?"),
 (@GOSSIP_MENU, 4, 2, "Ironforge", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Ironforge?"),
 (@GOSSIP_MENU, 5, 2, "Exodar", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Exodar?"),
-(@GOSSIP_MENU, 6, 2, "Thunder bluff", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Thunder bluff?"),
+(@GOSSIP_MENU, 6, 2, "Thunder Bluff", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Thunder bluff?"),
 (@GOSSIP_MENU, 7, 2, "Undercity", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Undercity?"),
-(@GOSSIP_MENU, 8, 2, "Silvermoon city", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Silvermoon city?"),
+(@GOSSIP_MENU, 8, 2, "Silvermoon City", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Silvermoon city?"),
 (@GOSSIP_MENU, 9, 2, "Dalaran", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Dalaran?"),
 (@GOSSIP_MENU, 10, 2, "Shattrath", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Shattrath?"),
-(@GOSSIP_MENU, 11, 2, "Booty bay", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Booty bay?"),
-(@GOSSIP_MENU, 12, 2, "Gurubashi arena", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Arena?"),
+(@GOSSIP_MENU, 11, 2, "Booty Bay", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Booty bay?"),
+(@GOSSIP_MENU, 12, 2, "Gurubashi Arena", 1, 1, @GOSSIP_MENU, 0, 0, 0, "Are you sure, that you want to go to Arena?"),
 (@GOSSIP_MENU, 13, 3, "Eastern Kingdoms", 1, 1, @GOSSIP_MENU+5, 0, 0, 0, NULL),
 (@GOSSIP_MENU, 14, 3, "Kalimdor", 1, 1, @GOSSIP_MENU+6, 0, 0, 0, NULL),
 (@GOSSIP_MENU, 15, 3, "Outland", 1, 1, @GOSSIP_MENU+7, 0, 0, 0, NULL),
@@ -272,14 +272,14 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+1, 16, 2, "Sunken Temple", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Sunken Temple?"),
 (@GOSSIP_MENU+1, 17, 2, "Uldaman", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Uldaman?"),
 (@GOSSIP_MENU+1, 18, 2, "Zul'Farrak", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Zul'Farrak?"),
-(@GOSSIP_MENU+1, 19, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
+(@GOSSIP_MENU+1, 19, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
 (@GOSSIP_MENU+2, 0, 2, "Auchindoun", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Auchindoun?"),
 (@GOSSIP_MENU+2, 1, 2, "Caverns of Time", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Caverns of Time?"),
 (@GOSSIP_MENU+2, 2, 2, "Coilfang Reservoir", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Coilfang Reservoir?"),
 (@GOSSIP_MENU+2, 3, 2, "Hellfire Citadel", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Hellfire Citadel?"),
 (@GOSSIP_MENU+2, 4, 2, "Magisters' Terrace", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Magisters' Terrace?"),
 (@GOSSIP_MENU+2, 5, 2, "Tempest Keep", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Tempest Keep?"),
-(@GOSSIP_MENU+2, 6, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
+(@GOSSIP_MENU+2, 6, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
 (@GOSSIP_MENU+3, 0, 2, "Azjol-Nerub", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Azjol-Nerub?"),
 (@GOSSIP_MENU+3, 1, 2, "The Culling of Stratholme", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to The Culling of Stratholme?"),
 (@GOSSIP_MENU+3, 2, 2, "Trial of the Champion", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Trial of the Champion?"),
@@ -292,7 +292,7 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+3, 9, 2, "Halls of Stone", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Halls of Stone?"),
 (@GOSSIP_MENU+3, 10, 2, "Utgarde Keep", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Utgarde Keep?"),
 (@GOSSIP_MENU+3, 11, 2, "Utgarde Pinnacle", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Utgarde Pinnacle?"),
-(@GOSSIP_MENU+3, 12, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
+(@GOSSIP_MENU+3, 12, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
 (@GOSSIP_MENU+4, 0, 2, "Black Temple", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Black Temple?"),
 (@GOSSIP_MENU+4, 1, 2, "Blackwing Lair", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Blackwing Lair?"),
 (@GOSSIP_MENU+4, 2, 2, "Hyjal Summit", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Hyjal Summit?"),
@@ -307,7 +307,7 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+4, 11, 2, "Onyxia's Lair", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Onyxia's Lair?"),
 (@GOSSIP_MENU+4, 12, 2, "Ruins of Ahn'Qiraj", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Ruins of Ahn'Qiraj?"),
 (@GOSSIP_MENU+4, 13, 2, "Sunwell Plateau", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Sunwell Plateau?"),
-(@GOSSIP_MENU+4, 14, 2, "The Eye", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to The Eye?"),
+(@GOSSIP_MENU+4, 14, 2, "Tempest Keep: The Eye", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to The Eye?"),
 (@GOSSIP_MENU+4, 15, 2, "Temple of Ahn'Qiraj", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Temple of Ahn'Qiraj?"),
 (@GOSSIP_MENU+4, 16, 2, "The Eye of Eternity", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to The Eye of Eternity?"),
 (@GOSSIP_MENU+4, 17, 2, "The Obsidian Sanctum", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to The Obsidian Sanctum?"),
@@ -315,16 +315,16 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+4, 19, 2, "Vault of Archavon", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Vault of Archavon?"),
 (@GOSSIP_MENU+4, 21, 2, "Zul'Gurub", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Zul'Gurub?"),
 (@GOSSIP_MENU+4, 22, 2, "Zul'Aman", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Zul'Aman?"),
-(@GOSSIP_MENU+4, 23, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
+(@GOSSIP_MENU+4, 23, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
 (@GOSSIP_MENU+5, 0, 2, "Elwynn Forest", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Elwynn Forest?"),
 (@GOSSIP_MENU+5, 1, 2, "Eversong Woods", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Eversong Woods?"),
 (@GOSSIP_MENU+5, 2, 2, "Dun Morogh", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Dun Morogh?"),
 (@GOSSIP_MENU+5, 3, 2, "Tirisfal Glades", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Tirisfal Glades?"),
 (@GOSSIP_MENU+5, 4, 2, "Ghostlands", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Ghostlands?"),
-(@GOSSIP_MENU+5, 5, 2, "Loch modan", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Loch modan?"),
+(@GOSSIP_MENU+5, 5, 2, "Loch Modan", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Loch modan?"),
 (@GOSSIP_MENU+5, 6, 2, "Silverpine Forest", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Silverpine Forest?"),
 (@GOSSIP_MENU+5, 7, 2, "Westfall", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Westfall?"),
-(@GOSSIP_MENU+5, 8, 2, "Redridge mountains", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Redridge mountains?"),
+(@GOSSIP_MENU+5, 8, 2, "Redridge Mountains", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Redridge mountains?"),
 (@GOSSIP_MENU+5, 9, 2, "Duskwood", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Duskwood?"),
 (@GOSSIP_MENU+5, 10, 2, "Hillsbrad Foothills", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Hillsbrad Foothills?"),
 (@GOSSIP_MENU+5, 11, 2, "Wetlands", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Wetlands?"),
@@ -340,7 +340,7 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+5, 21, 2, "Western Plaguelands", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Western Plaguelands?"),
 (@GOSSIP_MENU+5, 22, 2, "Eastern Plaguelands", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Eastern Plaguelands?"),
 (@GOSSIP_MENU+5, 23, 2, "Isle of Quel'Danas", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Isle of Quel'Danas?"),
-(@GOSSIP_MENU+5, 24, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
+(@GOSSIP_MENU+5, 24, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
 (@GOSSIP_MENU+6, 0, 2, "Azuremyst Isle", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Azuremyst Isle?"),
 (@GOSSIP_MENU+6, 1, 2, "Teldrassil", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Teldrassil?"),
 (@GOSSIP_MENU+6, 2, 2, "Durotar", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Durotar?"),
@@ -360,7 +360,7 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+6, 16, 2, "Un'Goro Crater", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Un'Goro Crater?"),
 (@GOSSIP_MENU+6, 17, 2, "Silithus", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Silithus?"),
 (@GOSSIP_MENU+6, 18, 2, "Winterspring", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Winterspring?"),
-(@GOSSIP_MENU+6, 19, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
+(@GOSSIP_MENU+6, 19, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
 (@GOSSIP_MENU+7, 0, 2, "Hellfire Peninsula", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Hellfire Peninsula?"),
 (@GOSSIP_MENU+7, 1, 2, "Zangarmarsh", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Zangarmarsh?"),
 (@GOSSIP_MENU+7, 2, 2, "Terokkar Forest", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Terokkar Forest?"),
@@ -368,7 +368,7 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+7, 4, 2, "Blade's Edge Mountains", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Blade's Edge Mountains?"),
 (@GOSSIP_MENU+7, 5, 2, "Netherstorm", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Netherstorm?"),
 (@GOSSIP_MENU+7, 6, 2, "Shadowmoon Valley", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Shadowmoon Valley?"),
-(@GOSSIP_MENU+7, 7, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
+(@GOSSIP_MENU+7, 7, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL),
 (@GOSSIP_MENU+8, 0, 2, "Borean Tundra", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Borean Tundra?"),
 (@GOSSIP_MENU+8, 1, 2, "Howling Fjord", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Howling Fjord?"),
 (@GOSSIP_MENU+8, 2, 2, "Dragonblight", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Dragonblight?"),
@@ -379,7 +379,7 @@ INSERT INTO gossip_menu_option (menuid, optionid, optionicon, optiontext, option
 (@GOSSIP_MENU+8, 7, 2, "Storm Peaks", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Storm Peaks?"),
 (@GOSSIP_MENU+8, 8, 2, "Icecrown", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Icecrown?"),
 (@GOSSIP_MENU+8, 9, 2, "Wintergrasp", 1, 1, 0, 0, 0, 0, "Are you sure, that you want to go to Wintergrasp?"),
-(@GOSSIP_MENU+8, 10, 7, "Back..", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL);
+(@GOSSIP_MENU+8, 10, 7, "Back...", 1, 1, @GOSSIP_MENU, 0, 0, 0, NULL);
 
 -- Teleport scripts:
 
@@ -519,7 +519,7 @@ INSERT INTO smart_scripts (entryorguid, source_type, id, link, event_type, event
 -- Teleporter spawns:
 
 ALTER TABLE creature AUTO_INCREMENT = 200000;
-INSERT INTO creature (id, map, spawnMask, phaseMask, modelid, position_x, position_y, position_z, orientation, spawntimesecs, spawndist, curhealth, curmana) VALUES
+INSERT INTO creature (id, map, spawnMask, phaseMask, modelid, position_x, position_y, position_z, orientation, spawntimesecs, wander_distance, curhealth, curmana) VALUES
 (@ENTRY, 0, 1, 1, 0, -13180.5, 342.503, 43.1936, 4.32977, 25, 0, 13700, 6540), 
 (@ENTRY, 530, 1, 1, 0, -3862.69, -11645.8, -137.629, 2.38273, 25, 0, 13700, 6540), 
 (@ENTRY, 0, 1, 1, 0, -4898.37, -965.118, 501.447, 2.25986, 25, 0, 13700, 6540), 
