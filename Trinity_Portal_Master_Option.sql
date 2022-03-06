@@ -14,7 +14,7 @@ SET
 @TELE_NAME := "Custom Location",
 @POPUP := "Are you sure?",
 
-@COST := 0, -- copper
+@COST := 2000, -- copper
 @REQ_LEVEL := 0, -- 0 for no requirement
 @FACTION := 0, -- 0 for no req. 469 - Alliance, 67 - Horde.
 
