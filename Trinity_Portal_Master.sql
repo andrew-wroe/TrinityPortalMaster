@@ -37,7 +37,7 @@ INSERT INTO creature_template (entry, modelid1, name, subname, IconName, gossip_
 
 -- Teleporter aura
 
-INSERT INTO creature_template_addon (entry, mount, MountCreatureID, bytes1, bytes2, emote, path_id, auras) VALUES (@ENTRY, 0, 0, 0, 0, 0, 0, @AURA);
+INSERT INTO creature_template_addon (entry, path_id, mount, MountCreatureID, StandState, AnimTier, VisFlags, SheathState, PvPFlags, emote, visibilityDistanceType, auras) VALUES (@ENTRY, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, @AURA);
 
 -- Gossip header text link to menus
 
